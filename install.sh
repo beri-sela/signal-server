@@ -4,7 +4,7 @@ sudo apt-get update -y
 sudo apt install -y git maven
 sudo apt-get install -y docker docker.io
 sudo git clone https://github.com/beri-sela/signal-server
-mv ~/signal-server signal
+mv ~/signal-server ~/signal
 sudo apt-get install -y nginx
 cd ~/signal && sudo docker-compose up -d && \
 git clone https://github.com/signalapp/signal/Signal-Server.git -b v4.97
