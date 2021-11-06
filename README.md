@@ -13,7 +13,7 @@ adduser ubuntu && usermod -aG sudo ubuntu && su ubuntu
 1- Clone the repository 
 
 ```shell 
-git clone https://github.com/beri-sela/signal-server
+git clone https://github.com/beri-sela/signal-server signal
 ```
 
 2- Run the script 
