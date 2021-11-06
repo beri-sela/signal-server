@@ -21,5 +21,5 @@ java -jar ~/signal/Signal-Server/service/target/TextSecureServer-4.97.jar messag
 cd
 echo "Open config.yml in signal/Signal-Server and make any changes there then run: \n
 nohup java -jar ~/signal/Signal-Server/service/target/TextSecureServer-4.97.jar server ~/signal/Signal-Server/config.yml \n 
-OR as below as daemon
-nohup java -jar ~/signal/Signal-Server/service/target/TextSecureServer-4.97.jar server ~/signal/Signal-Server/config.yml &>/dev/null &
+OR as below as daemon \n
+nohup java -jar ~/signal/Signal-Server/service/target/TextSecureServer-4.97.jar server ~/signal/Signal-Server/config.yml &>/dev/null &"
