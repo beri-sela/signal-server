@@ -1,0 +1,59 @@
+version: '3.0'
+services:
+  signal_database:
+    image: postgres:11
+    container_name: postgres_database
+    restart: always
+    environment:
+      POSTGRES_USER:     postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_MULTIPLE_DATABASES: abusedb, accountdb, keysdb, messagedb
+      PGDATA:            /var/lib/postgresql/data/pgdata
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgres_database:/var/lib/postgresql/data
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
+  redis_main:
+    image: redis:5
+    container_name: redis_main
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./redis_main:/data
+  redis_replication:
+    image: redis:5
+    container_name: redis_replication
+    restart: always
+    command: redis-server --port 6380
+    ports:
+      - '6380:6380'
+    volumes:
+      - ./redis_replication:/data
+  
+  # Remove lines below if you don't plan to use NginX in container mode or don't have SSL certificate
+  nginx:
+    image: nginx:1.20
+    container_name: nginx
+    restart: always
+    # ports:
+    #   - 80:80
+    #   - 443:443
+    volumes:
+      - /home/ubuntu/nginx/nginx.conf:/etc/nginx/nginx.conf:ro nginx
+      # - ./nginx/private.key:/etc/nginx/cert/private.key
+      # - ./nginx/certificate.crt:/etc/nginx/cert/certificate.crt
+  
+  # Remove lines below if you don't plan to use CoTurn in container mode
+  coturn:
+    image: coturn/coturn:4.5
+    container_name: coturn
+    restart: always
+    ports:
+      - 3478:3478
+      - 3478:3478/udp
+      - 49160-65535:49160-65535/udp
+    volumes:
+      - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf
+  
