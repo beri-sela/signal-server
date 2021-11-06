@@ -7,7 +7,7 @@ Signal Server version 4.97
 ## Installation
 0- Create sudo ubuntu user. Remember to note the password you will enter upon request.
 ```shell
-adduser ubuntu && usermod -aG ubuntu && su ubuntu
+adduser ubuntu && usermod -aG sudo ubuntu && su ubuntu
 ```
 
 1- Clone the repository 
