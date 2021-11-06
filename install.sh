@@ -3,10 +3,9 @@ cd /home/ubuntu/
 sudo apt-get update -y
 sudo apt install -y git maven
 sudo apt-get install -y docker docker.io docker-compose
-sudo git clone https://github.com/beri-sela/signal-server
-mv /home/ubuntu/signal-server /home/ubuntu/signal
+sudo git clone https://github.com/beri-sela/signal-server signal
+cd /home/ubuntu/signal && sudo docker-compose up -d
 sudo apt-get install -y nginx
-cd /home/ubuntu/signal && sudo docker-compose up -d && \
 cd /home/ubuntu/signal && git clone https://github.com/signalapp/signal/Signal-Server.git
 cd /home/ubuntu/signal/Signal-Server && git checkout v4.97
 cd /home/ubuntu/signal/Signal-Server && mvn -DskipTests package
@@ -24,3 +23,4 @@ echo "Open config.yml in signal/Signal-Server and make any changes there then ru
 java -jar /home/ubuntu/signal/Signal-Server/service/target/TextSecureServer-4.97.jar server /home/ubuntu/signal/Signal-Server/config.yml
 OR as below as daemon
 nohup java -jar /home/ubuntu/signal/Signal-Server/service/target/TextSecureServer-4.97.jar server /home/ubuntu/signal/Signal-Server/config.yml &>/dev/null &"
+echo "==END=="
