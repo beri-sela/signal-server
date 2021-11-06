@@ -2,12 +2,14 @@
 
 Signal Server version 4.97
 
+>NOTE: Advisable to run as non-root sudo user
+
 ## Installation
 1- Clone the repository 
 
 2- Run the script 
 ```shell
-bash install.sh
+sudo bash install.sh
 ```
 
 ## Credits
