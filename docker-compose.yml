@@ -41,7 +41,7 @@ services:
     #   - 80:80
     #   - 443:443
     volumes:
-      - /home/ubuntu/nginx/nginx.conf:/etc/nginx/nginx.conf:ro nginx
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
       # - ./nginx/private.key:/etc/nginx/cert/private.key
       # - ./nginx/certificate.crt:/etc/nginx/cert/certificate.crt
   

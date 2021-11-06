@@ -6,7 +6,7 @@ sudo apt-get install -y docker docker.io docker-compose
 sudo git clone https://github.com/beri-sela/signal-server signal
 cd /home/ubuntu/signal && sudo docker-compose up -d
 sudo apt-get install -y nginx
-cd /home/ubuntu/signal && git clone https://github.com/signalapp/signal/Signal-Server.git
+cd /home/ubuntu/signal && git clone https://github.com/signalapp/Signal-Server.git
 cd /home/ubuntu/signal/Signal-Server && git checkout v4.97
 cd /home/ubuntu/signal/Signal-Server && mvn -DskipTests package
 # sudo docker run -d --restart unless-stopped --name accountdb -e "POSTGRES_PASSWORD=postgres" -e "POSTGRES_DB=accountdb" -p 5432:5432 postgres:11 && \
