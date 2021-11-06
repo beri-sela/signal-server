@@ -18,7 +18,7 @@ git clone https://github.com/beri-sela/signal-server signal
 
 2- Run the script 
 ```shell
-sudo bash signal-server/install.sh
+sudo bash signal/install.sh
 ```
 
 ## Credits
